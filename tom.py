@@ -34,6 +34,7 @@ def compiletom(pofix):
             # merges them together
             # connect 1st NFAs accept state to the 2nd's initial
             nfa1.accept.edge1 = nfa2.initial
+            
             # push NFA to stack
             # one way to do it ¬ nfastack.append(nfa(initial, accept))
             # second way 'easier way'
@@ -55,6 +56,7 @@ def compiletom(pofix):
             accept = state()
             nfa1.accept.edge1 = accept
             nfa2.accept.edge1 = accept
+
             # push NFA to stack
             # one way to do it ¬ nfastack.append(nfa(initial, accept))
             # second way 'easier way'
@@ -74,6 +76,7 @@ def compiletom(pofix):
             # join the old accept state to the new accept state and nfa1's initial state.
             nfa1.accept.edge1 =  nfa.initial
             nfa1.accept.edge2 = accept
+
             # push new NFA to the stack
             # one way to do it ¬ nfastack.append(nfa(initial, accept))
             # second way 'easier way'
@@ -95,6 +98,7 @@ def compiletom(pofix):
             # going to create a new instance of the NFA class. 
             # set its initial state to the 
             # initial state here that I've just created   
+
             # push new NFA to the stack # ¬ returns an instance of the nfa class ¬
             # one way to do it ¬ nfastack.append(nfa(initial, accept))
             # second way 'easier way'
@@ -107,3 +111,4 @@ def compiletom(pofix):
 
 print(compiletom("ab.cd.|"))
 print(compiletom("aa.*"))
+print(compiletom("(0|(1(01*(00)*0)*1)*)*"))
